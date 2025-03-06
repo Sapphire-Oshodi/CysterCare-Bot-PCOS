@@ -1,5 +1,5 @@
 lamini
-python_dotenv
+python-dotenv
 transformers
 numpy
 pandas
