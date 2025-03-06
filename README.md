@@ -27,7 +27,7 @@ Lamini enhances the chatbot by fine-tuning the underlying language model with do
 ## Getting Started 🛠️  
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/cystercare.git
+   git clone https://github.com/Sapphire-Oshodi/CysterCare-Bot-PCOS.git
    ```  
 2. Follow the instructions in the `README.md` to set up Lamini and OpenAI integration.  
 
