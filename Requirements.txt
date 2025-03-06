@@ -1,8 +1,0 @@
-lamini
-python-dotenv
-transformers
-numpy
-pandas
-ipykernel
-torch
-streamlit
