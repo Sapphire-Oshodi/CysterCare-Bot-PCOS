@@ -47,3 +47,17 @@ What is PCOS?<|eot_id|>
 
 """))
 print("Training Executed.")
+
+
+
+from lamini import Lamini
+
+def process_query(user_input):
+    try:
+        # Load the fine-tuned Lamini model
+        llm = Lamini(model_name="8b11ee2058ec232b293a8fcbf798841c34a2a1efc19698ae1ef3682722046b18")
+        # Generate response
+        response = llm.generate(user_input)
+        return response
+    except Exception as e:
+        return f"Error generating response: {e}"
