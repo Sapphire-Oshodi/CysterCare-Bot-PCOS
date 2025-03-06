@@ -48,7 +48,7 @@ def main():
     st.markdown("<br>", unsafe_allow_html=True)
 
     # Display main image
-    st.image(IMAGE_PATH, width=150, use_column_width=True)
+    st.image(IMAGE_PATH, width=150, use_container_width=True)
 
     # Sidebar
     with st.sidebar:
@@ -114,4 +114,9 @@ def process_query(user_input):
 if __name__ == "__main__":
     main()
 
-st.image("pngwing.com (25).png", use_column_width=True, caption="Know it. Fight it. Manage it.")
+# Display footer image with updated parameters
+st.image(
+    "pngwing.com (25).png",
+    use_container_width=True,
+    caption="Know it. Fight it. Manage it."
+)
