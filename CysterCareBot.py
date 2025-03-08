@@ -18,7 +18,7 @@ except Exception as e:
 
 # Initialize the fine-tuned Lamini model
 try:
-    llm = Lamini(model_name="9f8201e3cd804a1b408be8ca069295ed7271f8ee86d068791dad428f30a6fc6d")
+    llm = Lamini(model_name="meta-llama/Meta-Llama-3.1-8B-Instruct")
 except Exception as e:
     st.error(f"Error loading fine-tuned model: {e}")
     raise e
