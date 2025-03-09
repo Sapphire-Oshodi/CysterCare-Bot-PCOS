@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Fetch Lamini API key
+# Fetch and set the Lamini API key
 try:
     api_key = os.getenv("LAMINI_API_KEY")
     if not api_key:
@@ -16,16 +16,16 @@ except Exception as e:
     st.error(f"Error loading Lamini API Key: {e}")
     raise e
 
-# Initialize the fine-tuned Lamini model
+# Initialize the Lamini model for query generation
 try:
     llm = Lamini(model_name="meta-llama/Meta-Llama-3.1-8B-Instruct")
 except Exception as e:
-    st.error(f"Error loading fine-tuned model: {e}")
+    st.error(f"Error loading model: {e}")
     raise e
 
-# Centralized image path
-IMAGE_PATH = "Untitled design (1).png"  # Update this to the correct path
-
+# Image paths
+MAIN_IMAGE_PATH = "Untitled design (1).png"  # Update the path as needed
+FOOTER_IMAGE_PATH = "pngwing.com (25).png"  # Update the path as needed
 
 # Define the Streamlit app
 def main():
@@ -48,7 +48,10 @@ def main():
     st.markdown("<br>", unsafe_allow_html=True)
 
     # Display main image
-    st.image(IMAGE_PATH, width=150, use_container_width=True)
+    try:
+        st.image(MAIN_IMAGE_PATH, width=150, use_column_width=True)
+    except FileNotFoundError:
+        st.warning("Main image not found. Please check the path.")
 
     # Sidebar
     with st.sidebar:
@@ -100,6 +103,12 @@ def main():
         else:
             st.warning("Please enter a question before submitting.")
 
+    # Footer image
+    try:
+        st.image(FOOTER_IMAGE_PATH, use_column_width=True, caption="Know it. Fight it. Manage it.")
+    except FileNotFoundError:
+        st.warning("Footer image not found. Please check the path.")
+
 
 # Function to process user queries
 def process_query(user_input):
@@ -113,10 +122,3 @@ def process_query(user_input):
 # Run the app
 if __name__ == "__main__":
     main()
-
-# Display footer image with updated parameters
-st.image(
-    "pngwing.com (25).png",
-    use_container_width=True,
-    caption="Know it. Fight it. Manage it."
-)
